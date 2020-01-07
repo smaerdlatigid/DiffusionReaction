@@ -161,6 +161,8 @@ def parse_args():
                         help="")
     parser.add_argument("--constant_rate", action="store_true",
                         help="")
+    parser.add_argument("-s", "--seed", type=int, default=np.random.randint(0, 2**31),
+                        help="")
 
     args = parser.parse_args()
     if not args.output_name.endswith(".gif"):
@@ -177,16 +179,16 @@ if __name__ == "__main__":
     num_steps = args.num_steps
 
     img = imread(args.file, as_gray=True).astype(np.float) / 255.
-    img = resize(img, (N, N)).ravel()
+    img = resize(img, (N, N))
+    img = img.ravel()
     img *= (1 / np.max(img) * 1.01)
 
     rdSolver = GrayScott(N, Du, Dv, K)
-    rdSolver.initialise()
+    rdSolver.initialise(args.seed)
     rdSolver.u += img * 0.5
     rdSolver.v += img * 0.2
 
     animation = AnimatedGif()
-    
     if args.constant_rate:
         step_fn = lambda x: int(50 * Nt)
     else:
@@ -199,7 +201,7 @@ if __name__ == "__main__":
 
         rdSolver.integrate(step_fn(i * Nt), FM)
         animation.add(rdSolver.v.reshape((rdSolver.N, rdSolver.N)))
-        print(f"\rStep {i} out of {num_steps} complete. ", flush=True, end="")
+        print(f"\rStep {i+1} out of {num_steps} complete. ", flush=True, end="")
     print()
-    
+
     animation.save(args.output_name)
