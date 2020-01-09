@@ -1,11 +1,13 @@
 # DiffusionReaction
 Solve the diffusion-reaction equations with custom initial conditions. Used to create the profile logo.
 
-![](dd_3.gif)
-![](rick4.gif)
-
 # Getting Started
-To make your own gif, first pull DiffusionReaction from git. Then, set up the dependencies by running pip install -r requirements.txt.
+To make your own gif, first pull DiffusionReaction from git. Then, set up the dependencies by running 
+
+```
+pip install -r requirements.txt`
+```
+
 Finally, run the program by typing 
 
 ```
@@ -19,3 +21,7 @@ To see a list of options that can be tweaked to generate different images, try d
 ```
 python rd_image.py --help
 ```
+
+## Examples
+![](dd_3.gif)
+![](rick4.gif)
