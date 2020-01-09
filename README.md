@@ -1,5 +1,4 @@
-# DiffusionReaction
-Solve the diffusion-reaction equations with custom initial conditions. Used to create the profile logo.
+Solve the diffusion-reaction equations with custom initial conditions. Used to create our profile logo.
 
 # Getting Started
 To make your own gif, first pull DiffusionReaction from git. Then, set up the dependencies by running 
