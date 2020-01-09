@@ -2,7 +2,7 @@
 To make your own gif, first pull DiffusionReaction from git. Then, set up the dependencies by running 
 
 ```
-pip install -r requirements.txt`
+pip install -r requirements.txt
 ```
 
 Finally, run the program by typing 
